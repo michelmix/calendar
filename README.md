@@ -63,7 +63,7 @@ O objetivo deste desafio é colocar em prática o que você estudou a respeito d
 4. Os arquivos que serão utilizados já estão criados, não há necessidade de criar novos arquivos.
 
 - Verifique se você está na raiz do projeto
-  - Exemplo: `pwd` -> o retorno vai ser algo do tipo _/Users/maria/code/**sd-0x-exercise-tryber-calendar**_
+  - Exemplo: `pwd` -> o retorno vai ser algo do tipo _/Users/maria/code/**sd-027-a-exercise-tryber-calendar**_
 - Os arquivos são `index.html`, `style.css` e `script.js`
 
 5. Adicione as mudanças ao *stage* do Git e faça um `commit`.
@@ -85,7 +85,7 @@ O objetivo deste desafio é colocar em prática o que você estudou a respeito d
 
 7. Crie um `Pull Request` *(PR)*.
 
-- Vá até a página de *Pull Requests* do [repositório no GitHub](https://github.com/tryber/sd-0x-exercise-tryber-calendar/pulls)
+- Vá até a página de *Pull Requests* do [repositório no GitHub](https://github.com/tryber/sd-027-a-exercise-tryber-calendar/pulls)
 - Clique no botão verde *"New pull request"*
 - Clique na caixa de seleção *"Compare"* e escolha sua branch **com atenção** - Coloque um título em seu *Pull Request*
   - Exemplo: *"Cria tela de busca"*
@@ -95,7 +95,7 @@ O objetivo deste desafio é colocar em prática o que você estudou a respeito d
 
  <img width="1335" alt="Exemplo de pull request" src="https://user-images.githubusercontent.com/42356399/166255109-b95e6eb4-2503-45e5-8fb3-cf7caa0436e5.png">
 
-- Volte até a [página de *Pull Requests* do repositório](https://github.com/tryber/sd-0x-exercise-tryber-calendar/pulls) e confira se seu *Pull Request* está criado
+- Volte até a [página de *Pull Requests* do repositório](https://github.com/tryber/sd-027-a-exercise-tryber-calendar/pulls) e confira se seu *Pull Request* está criado
 
 </details>
 <details>
