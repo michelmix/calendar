@@ -22,7 +22,7 @@ createDaysOfTheWeek();
 
 const daysList = document.getElementById("days");
 const tagUlDays = document.getElementsByTagName("ul")[2];
-console.log(tagUlDays);
+// console.log(tagUlDays);
 
 const createDaysOfTheMonth = () => {
   const decemberDaysList = [
@@ -46,8 +46,20 @@ const createDaysOfTheMonth = () => {
 };
 createDaysOfTheMonth();
 
-const createHolidays = () => {
-  day.className = "holiday";
+const holidayBtn = document.getElementById("btn-holiday");
+
+const handleHolidays = () => {
+  const holidays = document.getElementsByClassName("holiday");
+  for (let index = 0; index < holidays.length; index++) {
+    const element = holidays[index];
+    if (element.style.backgroundColor === "red") {
+      element.style.backgroundColor = "rgb(238,238,238)";
+    } else {
+      element.style.backgroundColor = "red";
+    }
+  }
 };
+
+holidayBtn.addEventListener("click", handleHolidays);
 
 // Escreva seu código abaixo.
