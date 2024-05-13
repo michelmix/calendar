@@ -47,9 +47,9 @@ const createDaysOfTheMonth = () => {
 createDaysOfTheMonth();
 
 const holidayBtn = document.getElementById("btn-holiday");
-
 const handleHolidays = () => {
   const holidays = document.getElementsByClassName("holiday");
+  // console.log(holidays);
   for (let index = 0; index < holidays.length; index++) {
     const element = holidays[index];
     if (element.style.backgroundColor === "red") {
@@ -59,7 +59,30 @@ const handleHolidays = () => {
     }
   }
 };
-
 holidayBtn.addEventListener("click", handleHolidays);
+
+const fridayBtn = document.getElementById("btn-friday");
+const fridays = document.getElementsByClassName("friday");
+const originalTexts = []; // Array para armazenar os textos originais dos dias de sexta-feira
+
+// Preenche o array com os textos originais dos dias de sexta-feira
+for (let i = 0; i < fridays.length; i++) {
+  originalTexts.push(fridays[i].innerText);
+}
+
+const handleFridays = () => {
+  for (let i = 0; i < fridays.length; i++) {
+    // Verifica se o texto já foi alterado
+    if (fridays[i].innerText === 'SEXTOU!') {
+      // Se sim, volta ao texto original
+      fridays[i].innerText = originalTexts[i];
+    } else {
+      // Se não, altera para 'SEXTOU!'
+      fridays[i].innerText = 'SEXTOU!';
+    }
+  }
+};
+fridayBtn.addEventListener('click', handleFridays);
+
 
 // Escreva seu código abaixo.
