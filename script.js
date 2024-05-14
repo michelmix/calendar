@@ -100,32 +100,37 @@ for (let index = 0; index < days.length; index++) {
 
 // Função para lidar com a seleção e desmarcação da tarefa
 const handleTaskSelection = (event) => {
-  const selectedTask = document.querySelector('.selected');
+  const selectedTask = document.querySelector(".selected");
   if (selectedTask) {
-    selectedTask.classList.remove('selected'); // Remove a classe 'selected' de qualquer tarefa selecionada anteriormente
+    selectedTask.classList.remove("selected");
   }
-  event.target.classList.add('selected'); // Adiciona a classe 'selected' à tarefa clicada
+  event.target.classList.add("selected");
+  if (selectedTask === event.target) {
+    selectedTask.classList.remove("selected");
+  }
 };
 
 // Adiciona evento de clique a todas as tarefas para lidar com a seleção
-const tasks = document.querySelectorAll('.task');
-tasks.forEach(task => {
-  task.addEventListener('click', handleTaskSelection);
+const tasks = document.querySelectorAll(".task");
+tasks.forEach((task) => {
+  task.addEventListener("click", handleTaskSelection);
 });
 
 // Função para lidar com a atribuição de cor ao dia do calendário
 const handleDayColoring = (event) => {
-  const selectedTask = document.querySelector('.selected');
+  const selectedTask = document.querySelector(".selected");
   if (selectedTask) {
-    const color = selectedTask.style.backgroundColor; // Obtém a cor da tarefa selecionada
-    event.target.style.color = color; // Atribui a cor ao texto do dia do calendário
-  } else {
-    event.target.style.color = 'rgb(119, 119, 119)'; // Retorna à cor inicial caso não haja tarefa selecionada
+    const color = selectedTask.style.backgroundColor;
+    if (event.target.style.color === color) {
+      event.target.style.color = "rgb(119, 119, 119)"; //
+    } else {
+      event.target.style.color = color;
+    }
   }
 };
 
 // Adiciona evento de clique a todos os dias do calendário para lidar com a atribuição de cor
-const daysQuery = document.querySelectorAll('.day');
-daysQuery.forEach(day => {
-  day.addEventListener('click', handleDayColoring);
+const daysQuery = document.querySelectorAll(".day");
+daysQuery.forEach((day) => {
+  day.addEventListener("click", handleDayColoring);
 });
