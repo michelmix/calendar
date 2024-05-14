@@ -1,3 +1,5 @@
+// const { event } = require("cypress/types/jquery");
+
 const createDaysOfTheWeek = () => {
   const weekDays = [
     "Domingo",
@@ -63,26 +65,67 @@ holidayBtn.addEventListener("click", handleHolidays);
 
 const fridayBtn = document.getElementById("btn-friday");
 const fridays = document.getElementsByClassName("friday");
-const originalTexts = []; // Array para armazenar os textos originais dos dias de sexta-feira
+const originalTexts = [];
 
-// Preenche o array com os textos originais dos dias de sexta-feira
 for (let i = 0; i < fridays.length; i++) {
   originalTexts.push(fridays[i].innerText);
 }
 
 const handleFridays = () => {
   for (let i = 0; i < fridays.length; i++) {
-    // Verifica se o texto já foi alterado
-    if (fridays[i].innerText === 'SEXTOU!') {
-      // Se sim, volta ao texto original
+    if (fridays[i].innerText === "SEXTOU!") {
       fridays[i].innerText = originalTexts[i];
     } else {
-      // Se não, altera para 'SEXTOU!'
-      fridays[i].innerText = 'SEXTOU!';
+      fridays[i].innerText = "SEXTOU!";
     }
   }
 };
-fridayBtn.addEventListener('click', handleFridays);
+fridayBtn.addEventListener("click", handleFridays);
 
+const days = document.getElementsByClassName("day");
 
-// Escreva seu código abaixo.
+const handleMouseOver = (event) => {
+  event.target.style.fontSize = "30px";
+};
+
+const handleMouseOut = (event) => {
+  event.target.style.fontSize = "20px";
+};
+
+for (let index = 0; index < days.length; index++) {
+  const day = days[index];
+  day.addEventListener("mouseover", handleMouseOver);
+  day.addEventListener("mouseout", handleMouseOut);
+}
+
+// Função para lidar com a seleção e desmarcação da tarefa
+const handleTaskSelection = (event) => {
+  const selectedTask = document.querySelector('.selected');
+  if (selectedTask) {
+    selectedTask.classList.remove('selected'); // Remove a classe 'selected' de qualquer tarefa selecionada anteriormente
+  }
+  event.target.classList.add('selected'); // Adiciona a classe 'selected' à tarefa clicada
+};
+
+// Adiciona evento de clique a todas as tarefas para lidar com a seleção
+const tasks = document.querySelectorAll('.task');
+tasks.forEach(task => {
+  task.addEventListener('click', handleTaskSelection);
+});
+
+// Função para lidar com a atribuição de cor ao dia do calendário
+const handleDayColoring = (event) => {
+  const selectedTask = document.querySelector('.selected');
+  if (selectedTask) {
+    const color = selectedTask.style.backgroundColor; // Obtém a cor da tarefa selecionada
+    event.target.style.color = color; // Atribui a cor ao texto do dia do calendário
+  } else {
+    event.target.style.color = 'rgb(119, 119, 119)'; // Retorna à cor inicial caso não haja tarefa selecionada
+  }
+};
+
+// Adiciona evento de clique a todos os dias do calendário para lidar com a atribuição de cor
+const daysQuery = document.querySelectorAll('.day');
+daysQuery.forEach(day => {
+  day.addEventListener('click', handleDayColoring);
+});
